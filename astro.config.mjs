@@ -7,10 +7,13 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import { SITE_URL } from "./src/consts";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE_URL,
   integrations: [mdx(), sitemap(), tailwind()],
+
   markdown: {
     shikiConfig: {
       themes: {
@@ -19,4 +22,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare(),
 });
